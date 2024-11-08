@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="header">
+                <img src="https://i.postimg.cc/x1PtnLzn/file.png" alt="BM Logo">
+            </div>
+            <div class="greeting-container">
+                <div class="greeting">
+                    <h1 id="greeting">Good Morning!</h1>
+                    <p id="date-time"></p>
+                </div>
+            </div>
+            <div class="welcome-message">Welcome home!</div>
+            <div class="temperature-humidity">
+                <div>
+                    <img src="https://i.postimg.cc/25rB5mTp/temp.jpg" alt="Temperature">
+                    <p id="temperature">Temperature<br>27°C</p>
+                </div>
+                <div>
+                    <img src="https://i.postimg.cc/nL29j5wX/water.jpg" alt="Humidity">
+                    <p id="humidity">Humidity<br>24%</p>
+                </div>
+            </div>
+            <div class="light-control">
+                <img id="light-bulb" src="https://i.postimg.cc/wvByhVS0/led-on.jpg" alt="Light On">
+                <img id="light-off" src="https://i.postimg.cc/sgFht5hg/led-off.jpg" alt="Light Off" style="display: none;">
+                <button id="toggle-light" style="background-image: url('https://i.postimg.cc/L8z1RhtB/on.jpg');"></button>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="energy-usage">
+                <div class="energy-usage-header">
+                    <img class="lightning" src="https://i.postimg.cc/3xhnstWt/lightning-removebg-preview.png" alt="Lightning">
+                    <h3>Energy Usage</h3>
+                </div>
+                <div id="energyUsageValue" class="energy-usage-value">250 W</div>
+                <canvas id="energyChart" width="200" height="200"></canvas>
+                <div class="show-details">Show Details</div>
+            </div>
+            <div class="house-section">
+                <img src="https://i.postimg.cc/VNL465qM/house-removebg-preview.png" alt="House">
+            </div>
+        </div>
+    </div>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script>
+        // Initialize MVC
+        const view = new View();
+        const model = new Model();
+        const controller = new Controller(view, model);
+    </script>
+</body>
+</html>
